@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require ('mongoose');
 const authRoutes = require('./routes/auth');
+const jobRoutes = require('./routes/job');
+
 require('dotenv').config();
 
 const app = express();
@@ -25,4 +27,4 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch((err) => console.log(err));
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/jobs', jobRoutes);
